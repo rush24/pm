@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -14,22 +15,22 @@
     <title>试卷管理分析系统(教师端)</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value='/index/bower_components/bootstrap/dist/css/bootstrap.min.css'/>" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="<c:url value='/index/bower_components/metisMenu/dist/metisMenu.min.css'/>" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="dist/css/timeline.css" rel="stylesheet">
+    <link href="<c:url value='/index/dist/css/timeline.css'/>" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<c:url value='/index/dist/css/sb-admin-2.css'/>" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="bower_components/morrisjs/morris.css" rel="stylesheet">
+    <link href="<c:url value='/index/bower_components/morrisjs/morris.css'/>" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value='/index/bower_components/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,11 +38,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<!-- jQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/drop-down.css" />
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/select-widget-min.js"></script>
+	<script src="<c:url value='/index/bower_components/jquery/dist/jquery.min.js'/>"></script>
+	<link rel="stylesheet" href="<c:url value='/index/css/drop-down.css'/>" />
+	<script src="<c:url value='/index/js/jquery-ui.min.js'/>"></script>
+	<script src="<c:url value='/index/js/select-widget-min.js'/>"></script>
 	<style>
 		#page-wrapper{
 			//border:1px solid #e7e7e7;
@@ -164,7 +164,7 @@
             <!-- /.退出 -->
             <ul class="nav navbar-top-links navbar-right">                
                 <li class="">                  
-                        <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.左边导航 -->
@@ -185,16 +185,16 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> 成绩分析<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
                                 <li>
-                                    <a href="s_grade_t.html">综合</a>
+                                    <a href="s_grade_t.jsp">综合</a>
                                 </li>
                                 <li>
-                                    <a href="s_chinese_t.html">语文</a>
+                                    <a href="s_chinese_t.jsp">语文</a>
                                 </li>
 								<li>
-                                    <a href="s_math_t.html">数学</a>
+                                    <a href="s_math_t.jsp">数学</a>
                                 </li>
                                 <li>
-                                    <a href="s_english_t.html">英语</a>
+                                    <a href="s_english_t.jsp">英语</a>
                                 </li>
                             </ul>
                         </li>
@@ -227,13 +227,13 @@
 			<div class="col-lg-9">
 				<div class="pass">
 					<!-- <span class="glyphicon glyphicon-user"></span> -->
-					<img class="img" src="image/user.png"/>
+					<img class="img" src="<c:url value='index/image/user.png'/>"/>
 					<p class="p">及格率</p>
 					<p class="p">86%</p>			
 				</div>
 				<div class="best">
 					<!-- <span class="glyphicon glyphicon-user"></span> -->
-					<img class="img" src="image/user.png"/>
+					<img class="img" src="<c:url value='index/image/user.png'/>"/>
 					<p class="p">优秀率</p>
 					<p class="p">28%</p>			
 				</div>
@@ -249,6 +249,7 @@
 					<span class="avg">平均分</span>
 				</div>
 				<canvas id="canvas" height="200px" width="600px"></canvas>
+				<center>语文成绩走势图</center>
 			</div>
 			</div>
 			<div class="col-lg-3">
@@ -271,7 +272,7 @@
         
 
     </div>	
-	<script src="js/Chart.js"></script>
+	<script src="<c:url value='/index/js/Chart.js'/>"></script>
 	<script>
 	var lineChartData = {
 			labels : ["2015-10-15","2015-10-21","2015-10-27","2015-11-2","2015-11-8","2015-11-14","2015-11-20"],
@@ -284,7 +285,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(70,161,248,1)",
-					data : [96,91,92,88,90,98,95]
+					data : [94,86,90,91,96,89,95]
 				},
 				{
 					label: "Min",
@@ -294,7 +295,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(251,223,30,1)",
-					data : [28,33,12,37,26,19,40]
+					data : [45,36,42,40,39,31,40]
 				},
 				{
 					label: "Avg",
@@ -304,7 +305,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(128,255,0,1)",
-					data : [70,68,76,62,59,67,72]
+					data : [61,67,71,63,70,69,72]
 				},
 				{
 					label: "Stu",
@@ -314,7 +315,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(255,30,30,1)",
-					data : [80,83,72,73,68,85,88]
+					data : [86,82,90,83,87,85,88]
 				}
 			]
 
@@ -345,17 +346,17 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<c:url value='/index/bower_components/bootstrap/dist/js/bootstrap.min.js'/>"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="<c:url value='/index/bower_components/metisMenu/dist/metisMenu.min.js'/>"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="bower_components/raphael/raphael-min.js"></script>
-    <script src="bower_components/morrisjs/morris.min.js"></script>
+    <script src="<c:url value='/index/bower_components/raphael/raphael-min.js'/>"></script>
+    <script src="<c:url value='/index/bower_components/morrisjs/morris.min.js'/>"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
+    <script src="<c:url value='/index/dist/js/sb-admin-2.js'/>"></script>
 
 </body>
 
