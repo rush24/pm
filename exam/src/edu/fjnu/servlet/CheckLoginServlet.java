@@ -2,6 +2,7 @@ package edu.fjnu.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,13 +28,13 @@ public class CheckLoginServlet extends BaseServlet {
 		String loginID = request.getParameter("userID");
 		
 		if(loginID.substring(0, 1).equals("1")){
-			Student student = CommonUtils.toBean(request.getParameterMap(), Student.class);
+			Student student = (Student)CommonUtils.toBean(request.getParameterMap(), Student.class);
 			
 			if(stuService.checkInfo(student) == true){
 				return "f:index/p_chinese_t.jsp";
 			}
 		}else if(loginID.substring(0, 1) == "2"){
-			Teacher teacher = CommonUtils.toBean(request.getParameterMap(), Teacher.class);
+			Teacher teacher = (Teacher)CommonUtils.toBean(request.getParameterMap(), Teacher.class);
 			if(teaService.checkInfo(teacher) == true){
 				return "f:index/s_grade_t.jsp";
 			}

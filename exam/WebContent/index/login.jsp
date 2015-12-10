@@ -42,7 +42,7 @@
 				</div>
 				<div class="col-lg-6 rdiv text-left">
 					<div class="border">
-					<form action="<%= request.getContextPath()%>/CheckLoginServlet" method="post" name="loginform" class="form">
+					<form action="<%= request.getContextPath()%>/TestServlet" method="post" name="loginform" class="form">
 						<input type="hidden" name="method" value="checkInfo"/>
 						<input class="input" type="text" name="userID" placeholder="账号"/>
 						<input class="input" type="password" name="password" placeholder="密码"/>
